@@ -6,6 +6,7 @@
 ;; You may delete these explanatory comments.
 
 ;; Add the package source
+(server-mode 1)
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
