@@ -1,3 +1,5 @@
+;; Add the package source
+
 ;; Initialization of packages
 (when (>= emacs-major-version 24)
   (require 'package)

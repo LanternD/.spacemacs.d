@@ -11,20 +11,20 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (server-mode 1)
-(text-scale-adjust +2)
-(require 'init-packages)
 
+(require 'init-packages)
+(require 'init-ui)
 ;;=====================
-;; turn off tool bar
-(tool-bar-mode -1)
-;; turn off scroll bar
-(scroll-bar-mode -1)
-;;(electric-indent-mode 1)
-(setq inhibit-splash-screen t)
-;; show line number
-(global-linum-mode t)
+
 ;; auto revert mode
 (global-auto-revert-mode t)
 
@@ -42,7 +42,7 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
-(setq-default cursor-type 'bar)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -78,17 +78,14 @@
 ;; delete selections
 (delete-selection-mode t)
 
-;; start emacs with full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
 
 ;; show matched parenthensis
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-;; highlight current line
-(global-hl-line-mode t)
 
-;; load theme each time we start Emacs
-(load-theme 'monokai t)
+
+
 
 
 
