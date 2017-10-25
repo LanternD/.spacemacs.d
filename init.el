@@ -7,6 +7,7 @@
 
 ;; Add the package source
 (server-mode 1)
+(text-scale-adjust 2)
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -46,6 +47,9 @@
 (setq inhibit-splash-screen t)
 ;; show line number
 (global-linum-mode t)
+;; auto revert mode
+(global-auto-revert-mode t)
+
 
 (defun open-init-el()
   (interactive)
@@ -83,6 +87,7 @@
 		      
 ;; enable syntax highlight in comments
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 (require 'org)
 (setq org-src-fontify-natively t)
 
