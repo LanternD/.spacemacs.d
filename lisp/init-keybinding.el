@@ -13,4 +13,8 @@
 
 ;; Key to open Agenda in Org mode 
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; Key to open counsel-git, c for counsel, g for git
+(global-set-key (kbd "C-c c g") 'counsel-git)
+
 (provide 'init-keybinding)

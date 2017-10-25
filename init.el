@@ -31,7 +31,7 @@
 (require 'init-improve-default)
 (require 'init-org)
 (require 'init-keybinding)
-(require 'custom)
 
 ;; Put all the customized package settings to custom.el file.
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
+(load-file custom-file)
