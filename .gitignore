@@ -19,6 +19,8 @@ cookies
 /newsticker
 /ac-comphist.dat
 \#*
+.#*
+/server
 /elpa
 /elpa-*
 site-lisp/package/

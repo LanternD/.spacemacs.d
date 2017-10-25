@@ -5,38 +5,16 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-;; Add the package source
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (server-mode 1)
-(text-scale-adjust 2)
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  )
-
-(require 'cl)
-;; Add whatever packages you want here
-(defvar lanternd/packages '(
-			    company
-			    monokai-theme
-			    hungry-delete
-			    counsel
-			    swiper
-			    smartparens
-			    js2-mode
-			    ) "Default packages")
-(setq package-selected-packages lanternd/packages)
-(defun lanternd/packages-installed-p ()
-  (loop for pkg in lanternd/packages
-        when(not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-
-(unless (lanternd/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg lanternd/packages)
-  (when (not (package-installed-p pkg))
-    (package-install pkg))))
+(text-scale-adjust +2)
+(require 'init-packages)
 
 ;;=====================
 ;; turn off tool bar
@@ -50,6 +28,8 @@
 ;; auto revert mode
 (global-auto-revert-mode t)
 
+;; disable the sound when we scroll to top or bottom. 
+(setq ring-bell-function 'ignore)
 
 (defun open-init-el()
   (interactive)
@@ -62,8 +42,6 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
-
-(global-company-mode t)
 (setq-default cursor-type 'bar)
 
 (custom-set-variables
@@ -112,49 +90,9 @@
 ;; load theme each time we start Emacs
 (load-theme 'monokai t)
 
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-;; configuration for Smex
-; (require 'smex)
-; (smex-initialize)
-
-;;(global-set-key (kbd "M-x") 'smex)
-;;(global-set-key (kbd "M-x") 'smex-major-mode-commands)
-;; the old M-x key:
-; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; Configuration of ivy and swiper
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "<f1> f") 'counsel-describe-function)
-(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-(global-set-key (kbd "<f1> l") 'counsel-find-library)
-(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-(global-set-key (kbd "C-c g") 'counsel-git)
-(global-set-key (kbd "C-c j") 'counsel-git-grep)
-(global-set-key (kbd "C-c k") 'counsel-ag)
-(global-set-key (kbd "C-x l") 'counsel-locate)
-(global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-(define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-
-;; Configuration of Smartparens
-(require 'smartparens-config)
-; (add-hook 'js-mode-hook #'smartparens-mode)
-;; (add-hook 'emacs-lisp-mode-hook #'smartparens-mode))
-(smartparens-global-mode t)
-
-(setq auto-mode-alist
-  (append
-    '(("\\.js\\'" . js2-mode))
-      auto-mode-alist))
 
 
-
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8ld" "LanternD")
+					    ))
