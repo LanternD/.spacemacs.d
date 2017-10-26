@@ -60,4 +60,18 @@
 ;; show matched parenthensis
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+;; shorten the yes or no request
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; enable always do recursive execution when copy or delete
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
+
+;; Limit the dired buffer to only one. (enabled when open a dir by return key)
+(put 'dired-find-alternate-file 'disabled nil)
+
+;; open the folder of current file by C-x C-j
+(require 'dired-x)
+(setq dired-dwim-target t)
+
 (provide 'init-improve-default)

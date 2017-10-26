@@ -23,4 +23,8 @@
 ;; Shift the M-/ key from dabbrev-expand to hippie-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
 
+;; if open a folder with return key, use the same buffer
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 (provide 'init-keybinding)
