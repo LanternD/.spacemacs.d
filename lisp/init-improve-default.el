@@ -10,6 +10,30 @@
 					    ("8ld" "LanternD")
 					    ))
 
+;; customized indent function
+(defun indent-whole-buffer()
+  (interactive)
+  (indent-region (point-min) (point-max))
+  )
+
+(defun indent-region-or-buffer()
+  (interactive)
+  (save-excursion 
+    (if (region-active-p)
+	(progn
+	  (indent-region (region-beginning) (region-end))
+	  ;;(message "Selected region is indented.")
+	  )
+      (progn 
+	(indent-whole-buffer)
+	;;(message "The whole buffer is indented.")
+	)
+      )
+    )
+  )
+
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
 ;; delete selections
 (delete-selection-mode t)
 

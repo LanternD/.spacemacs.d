@@ -26,7 +26,6 @@
 
 (server-mode 1)
 
-(require 'init-packages)
 (require 'init-ui)
 (require 'init-improve-default)
 (require 'init-org)
