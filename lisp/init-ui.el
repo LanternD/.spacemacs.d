@@ -23,6 +23,6 @@
 (global-hl-line-mode t)
 
 ;; start emacs with full screen
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+(setq initial-frame-alist '((width . 106) (height . 50)));(quote ((fullscreen . maximized))))
 
 (provide 'init-ui)

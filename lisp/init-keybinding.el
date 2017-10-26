@@ -27,4 +27,7 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;; Key to switch the font profiles
+(global-set-key (kbd "C-c s p") 'cnfonts-next-profile)
+
 (provide 'init-keybinding)

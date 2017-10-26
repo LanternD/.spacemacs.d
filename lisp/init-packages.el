@@ -18,6 +18,7 @@
 			    smartparens
 			    js2-mode
 			    popwin
+			    cnfonts
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -29,8 +30,8 @@
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
   (dolist (pkg lanternd/packages)
-  (when (not (package-installed-p pkg))
-    (package-install pkg))))
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))
 
 ;; ================
 
@@ -40,13 +41,13 @@
 (global-hungry-delete-mode)
 
 ;; configuration for Smex
-; (require 'smex)
-; (smex-initialize)
+					; (require 'smex)
+					; (smex-initialize)
 
 ;;(global-set-key (kbd "M-x") 'smex)
 ;;(global-set-key (kbd "M-x") 'smex-major-mode-commands)
 ;; the old M-x key:
-; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+					; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 ;; Configuration of ivy and swiper
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -70,7 +71,7 @@
 
 ;; Configuration of Smartparens
 (require 'smartparens-config)
-; (add-hook 'js-mode-hook #'smartparens-mode)
+					; (add-hook 'js-mode-hook #'smartparens-mode)
 ;; (add-hook 'emacs-lisp-mode-hook #'smartparens-mode))
 (smartparens-global-mode t)
 
@@ -79,8 +80,21 @@
 
 ;; open js file using js2-mode
 (setq auto-mode-alist
-  (append
-    '(("\\.js\\'" . js2-mode))
-      auto-mode-alist))
+      (append
+       '(("\\.js\\'" . js2-mode))
+       auto-mode-alist))
+
+;; Deal with the Chinese fonts
+(require 'cnfonts)
+(cnfonts-enable)
+(add-hook 'after-make-frame-functions 'cnfonts-set-font-with-saved-step)
+(add-hook 'window-setup-hook 'cnfonts-set-font-with-saved-step)
+
+(setq cnfonts-profiles
+      '("program-profile" "org-profile" "reading-profile"))
+
+(setq cnfonts--fontnames-fallback '(("Monaco" "Consolas" "DejaVu Sans Mono" "Droid Sans Mono" "Courier New" "Ubuntu Mono" "Droid Sans Mono Pro" "Lucida Sans Typewriter" "Lucida Typewriter" "Fira Mono" "Fira Code")
+				  ("文泉驿等宽微米黑" "微软雅黑" "Noto Sans S Chinese Regular" "Microsoft Yahei" "Microsoft_Yahei"  "文泉驿等宽正黑" "黑体" "文泉驿正黑" "文泉驿点阵正黑" )
+				  ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB" "PMingLiU-ExtB" "MingLiU_HKSCS-ExtB")))
 
 (provide 'init-packages)
