@@ -17,4 +17,10 @@
 ;; Key to open counsel-git, c for counsel, g for git
 (global-set-key (kbd "C-c c g") 'counsel-git)
 
+;; Key to deal with the indent
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
+;; Shift the M-/ key from dabbrev-expand to hippie-expand
+(global-set-key (kbd "M-/") 'hippie-expand)
+
 (provide 'init-keybinding)
