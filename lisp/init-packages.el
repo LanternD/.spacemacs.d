@@ -19,6 +19,7 @@
 			    js2-mode
 			    popwin
 			    cnfonts
+			    web-mode
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -93,8 +94,10 @@
 (setq cnfonts-profiles
       '("program-profile" "org-profile" "reading-profile"))
 
-(setq cnfonts--fontnames-fallback '(("Monaco" "Consolas" "DejaVu Sans Mono" "Droid Sans Mono" "Courier New" "Ubuntu Mono" "Droid Sans Mono Pro" "Lucida Sans Typewriter" "Lucida Typewriter" "Fira Mono" "Fira Code")
-				  ("文泉驿等宽微米黑" "微软雅黑" "Noto Sans S Chinese Regular" "Microsoft Yahei" "Microsoft_Yahei"  "文泉驿等宽正黑" "黑体" "文泉驿正黑" "文泉驿点阵正黑" )
-				  ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB" "PMingLiU-ExtB" "MingLiU_HKSCS-ExtB")))
+(setq cnfonts--fontnames-fallback '(("Monaco" "Consolas" "DejaVu Sans Mono" "Droid Sans Mono" "Lucida Sans Typewriter" "Lucida Typewriter" "Fira Code")
+				    ("文泉驿等宽微米黑" "微软雅黑" "Microsoft Yahei" "文泉驿等宽正黑" "黑体" "文泉驿正黑" "文泉驿点阵正黑" )
+				    ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB" "PMingLiU-ExtB" "MingLiU_HKSCS-ExtB")))
+
+(setq cnfonts--custom-set-fontnames cnfonts--fontnames-fallback)
 
 (provide 'init-packages)

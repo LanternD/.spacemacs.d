@@ -74,4 +74,24 @@
 (require 'dired-x)
 (setq dired-dwim-target t)
 
+;; Highlight the enclosing parenthensis while the cursor is inside it.
+(define-advice show-paren-function (:around (fn) fix-show-paren-functioon)
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
+;; Hide the ^M in the DOS files
+(defun hidden-dos-eol()
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+;; Option 2: remove ^M
+(defun remove-dos-eol()
+  (interactive)
+  (goto-char (point-min))
+  (while (serach-forward "\r" nil t) (replace-match "")))
+
+
 (provide 'init-improve-default)
