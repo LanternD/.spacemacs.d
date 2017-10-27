@@ -1,5 +1,4 @@
 
-
 ;; Open my init file
 (global-set-key (kbd "<f2> q") 'open-init-el)
 
@@ -29,5 +28,18 @@
 
 ;; Key to switch the font profiles
 (global-set-key (kbd "C-c s p") 'cnfonts-next-profile)
+
+;; Move the forward char to key J and backward key to F ***
+;; how to remenber? f and j has a small convex on the key, left and right.
+;; (global-set-key (kbd "C-f") 'backward-char)
+;; (global-set-key (kbd "C-j") 'forward-char)
+;; (global-set-key (kbd "M-f") 'backward-word)
+;; (global-set-key (kbd "M-j") 'forward-word)
+
+;; Key to enable expand-region package
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; Key to enable iedit-mode
+(global-set-key (kbd "C-;") 'iedit-mode)
 
 (provide 'init-keybinding)

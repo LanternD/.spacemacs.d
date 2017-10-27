@@ -93,5 +93,23 @@
   (goto-char (point-min))
   (while (serach-forward "\r" nil t) (replace-match "")))
 
+;; Improvement to the occur mode, change the default value to the word that the cursor pointing to.
+;; dwim = do what I mean \approx customization.
+(defun occur-dwim ()
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+;; Org mode export without TOC
+
+(setq org-export-with-toc nil)
 
 (provide 'init-improve-default)
