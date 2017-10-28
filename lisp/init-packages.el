@@ -23,6 +23,8 @@
 			    js2-refactor
 			    expand-region
 			    iedit
+			    ox-gfm
+			    markdown-mode
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -157,5 +159,10 @@
 
 ;; About expand-region package
 (require 'expand-region)
+
+;; Load GFM exporter after loading the major mode
+;; (require 'ox-gfm)
+(eval-after-load "org"
+  '(require 'ox-gfm nil t))
 
 (provide 'init-packages)

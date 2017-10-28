@@ -108,8 +108,10 @@
   (call-interactively 'occur))
 (global-set-key (kbd "M-s o") 'occur-dwim)
 
-;; Org mode export without TOC
-
+;; Org mode configuration
 (setq org-export-with-toc nil)
+;; (setq truncate-lines nil)
+;;(add-hook 'org-mode-hook
+;;          (lambda () (setq truncate-lines nil)))
 
 (provide 'init-improve-default)

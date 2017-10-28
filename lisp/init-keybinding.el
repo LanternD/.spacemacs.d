@@ -42,4 +42,25 @@
 ;; Key to enable iedit-mode
 (global-set-key (kbd "C-;") 'iedit-mode)
 
+;; Key to open counsel-imenu
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+
+;; Use short key to add heading template to the markdown document
+(global-set-key (kbd "C-c 1")
+		"#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+EXPORT_FILE_NAME: d:/github/en.dlyang.me/_posts/2017---.md
+#+EXPORT_FILE_NAME: d:/github/lanternd.github.io/blog/_posts/2017---.md
+#+BEGIN_EXAMPLE
+---
+layout: post
+title: 1
+description: 2.
+permalink: //
+categories: [blog]
+tags: []
+date: 2017-- 22:34:56
+---
+#+END_EXAMPLE")
+
 (provide 'init-keybinding)
