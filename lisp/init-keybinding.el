@@ -51,7 +51,7 @@
 #+STARTUP: hidestars
 #+EXPORT_FILE_NAME: d:/github/en.dlyang.me/_posts/2017---.md
 #+EXPORT_FILE_NAME: d:/github/lanternd.github.io/blog/_posts/2017---.md
-#+BEGIN_EXAMPLE
+#+BEGIN_EXPORT html
 ---
 layout: post
 title: 1
@@ -61,6 +61,6 @@ categories: [blog]
 tags: []
 date: 2017-- 22:34:56
 ---
-#+END_EXAMPLE")
+#+END_EXPORT")
 
 (provide 'init-keybinding)

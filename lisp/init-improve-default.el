@@ -10,6 +10,10 @@
 					    ("8ld" "LanternD")
 					    ))
 
+;; No truncated-lines in program mode
+(add-hook 'prog-mode-hook '(lambda ()
+			     (setq truncate-lines t)))
+
 ;; customized indent function
 (defun indent-whole-buffer()
   (interactive)
@@ -59,7 +63,6 @@
 
 ;; show matched parenthensis
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-
 ;; shorten the yes or no request
 (fset 'yes-or-no-p 'y-or-n-p)
 
