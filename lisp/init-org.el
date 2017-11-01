@@ -2,12 +2,17 @@
 (require 'org)
 (setq org-src-fontify-natively t)
 
-(setq org-agenda-files '("Dropbox/AGDA"))
+(setq org-agenda-files '("D:/Dropbox/AGDA"))
 
 ;; visual line mode in org-mode
 (add-hook 'org-mode-hook #'(lambda ()
-			    (visual-line-mode)
-			    (setq word-wrap nil)))
+			     (visual-line-mode)
+			     (setq word-wrap nil)))
 (setq org-startup-truncated nil)
+
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "D:/Dropbox/AGDA/Orz.org" "Agenda")
+	 "* TODO [#B] %?\n %i\n"
+	 :empty-line 1)))
 
 (provide 'init-org)

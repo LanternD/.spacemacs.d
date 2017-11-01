@@ -15,7 +15,7 @@
  '(org-md-headline-style (quote atx))
  '(package-selected-packages
    (quote
-    (org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
+    (org-pomodoro org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80))
 (custom-set-faces

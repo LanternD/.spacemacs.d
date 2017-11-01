@@ -25,6 +25,7 @@
 			    iedit
 			    ox-gfm
 			    markdown-mode
+			    org-pomodoro
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()

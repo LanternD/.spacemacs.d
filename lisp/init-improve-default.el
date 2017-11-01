@@ -1,3 +1,6 @@
+;; Default encoding
+(set-language-environment "UTF-8")
+
 ;; disable the sound when we scroll to top or bottom. 
 (setq ring-bell-function 'ignore)
 

@@ -65,4 +65,7 @@ date: 2017-- 22:34:56
 * 　
 ")
 
+;; key to quickly add TODO things. c-r r means remember.
+(global-set-key (kbd "C-c r") 'org-capture)
+
 (provide 'init-keybinding)
