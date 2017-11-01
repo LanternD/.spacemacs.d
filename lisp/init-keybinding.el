@@ -37,7 +37,7 @@
 ;; (global-set-key (kbd "M-j") 'forward-word)
 
 ;; Key to enable expand-region package
-(global-set-key (kbd "C-=") 'er/expand-region)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Key to enable iedit-mode
 (global-set-key (kbd "C-;") 'iedit-mode)

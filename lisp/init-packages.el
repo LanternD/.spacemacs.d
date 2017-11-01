@@ -26,6 +26,7 @@
 			    ox-gfm
 			    markdown-mode
 			    org-pomodoro
+			    ergoemacs-mode
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -165,5 +166,10 @@
 ;; (require 'ox-gfm)
 (eval-after-load "org"
   '(require 'ox-gfm nil t))
+
+(setq ergoemacs-theme "standard") ;; Uses Standard Ergoemacs keyboard theme
+(setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
+(require 'ergoemacs-mode)
+(ergoemacs-mode 1)
 
 (provide 'init-packages)
