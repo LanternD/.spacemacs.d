@@ -25,7 +25,6 @@
 ")
  '(ivy-truncate-lines nil)
  '(monokai-highlight "#90ee90")
- '(org-CUA-compatible nil)
  '(org-export-backends (quote (ascii html latex md gfm)))
  '(org-md-headline-style (quote atx))
  '(org-replace-disputed-keys nil)
@@ -33,7 +32,7 @@
  '(org-support-shift-select nil)
  '(package-selected-packages
    (quote
-    (ergoemacs-mode org-pomodoro org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
+    (auto-yasnippet flycheck ergoemacs-mode org-pomodoro org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80)
  '(recentf-menu-before "Open File...")

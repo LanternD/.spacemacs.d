@@ -27,6 +27,8 @@
 			    markdown-mode
 			    org-pomodoro
 			    ergoemacs-mode
+			    flycheck
+			    auto-yasnippet
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -60,7 +62,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
+
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "<f6>") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -167,9 +169,21 @@
 (eval-after-load "org"
   '(require 'ox-gfm nil t))
 
+;; Deal with the ergoemacs mode.
 (setq ergoemacs-theme "standard") ;; Uses Standard Ergoemacs keyboard theme
 (setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
 (require 'ergoemacs-mode)
 (ergoemacs-mode 1)
+(defvar ergoemacs-modify-transient-maps) ;; prevent warning when starting Emacs.
+
+;; enable flycheck globally
+(global-flycheck-mode)
+;; (add-hook 'prog-mode-hook 'flycheck-mode)
+
+;; yas-mode configuration
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 (provide 'init-packages)
+

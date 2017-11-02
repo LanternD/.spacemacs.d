@@ -1,11 +1,17 @@
+;; change some of the default settings in ergoemacs mode.
+(global-set-key (kbd "C-h") 'move-beginning-of-line)
+(global-set-key (kbd "C-e") 'move-end-of-line)
+
+;; Open swiper
+(global-set-key (kbd "C-f") 'swiper)
 
 ;; Open my init file
 (global-set-key (kbd "<f2> q") 'open-init-el)
 
 ;; Key for finding variable, function and key, it is different from C-h v/f/k
-(global-set-key (kbd "C-h C-f") 'find-function)
-(global-set-key (kbd "C-h C-v") 'find-variable)
-(global-set-key (kbd "C-h C-k") 'find-function-on-key)
+(global-set-key (kbd "C-c C-f") 'find-function)
+(global-set-key (kbd "C-c C-v") 'find-variable)
+(global-set-key (kbd "C-c C-k") 'find-function-on-key)
 
 ;; Key to open recent files
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
@@ -13,7 +19,7 @@
 ;; Key to open Agenda in Org mode 
 (global-set-key (kbd "C-c a") 'org-agenda)
 
-;; Key to open counsel-git, c for counsel, g for git
+;; Key to open counsel-git, c forq counsel, g for git
 (global-set-key (kbd "C-c c g") 'counsel-git)
 
 ;; Key to deal with the indent
@@ -37,7 +43,7 @@
 ;; (global-set-key (kbd "M-j") 'forward-word)
 
 ;; Key to enable expand-region package
-;; (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Key to enable iedit-mode
 (global-set-key (kbd "C-;") 'iedit-mode)
@@ -67,5 +73,17 @@ date: 2017-- 22:34:56
 
 ;; key to quickly add TODO things. c-r r means remember.
 (global-set-key (kbd "C-c r") 'org-capture)
+
+;; change the default key binding in company active map
+(with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "M-k") #'company-select-next)
+    (define-key company-active-map (kbd "M-i") #'company-select-previous))
+
+;; Key for auto-yasnippet
+(global-set-key (kbd "H-w") #'aya-create)
+(global-set-key (kbd "H-y") #'aya-expand)
+(global-set-key (kbd "C-m") #'aya-open-line)
 
 (provide 'init-keybinding)
