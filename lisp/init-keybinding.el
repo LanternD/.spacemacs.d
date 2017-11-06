@@ -6,7 +6,7 @@
 (global-set-key (kbd "C-f") 'swiper)
 
 ;; Open my init file
-(global-set-key (kbd "<f2> q") 'open-init-el)
+(global-set-key (kbd "<f1> q") 'open-init-el)
 
 ;; Key for finding variable, function and key, it is different from C-h v/f/k
 (global-set-key (kbd "C-c C-f") 'find-function)
@@ -63,7 +63,7 @@ layout: post
 title: 1
 description: 2.
 permalink: //
-categories: [Blog, 视·界]
+categories: [Blog, 视界]
 tags: []
 date: 2017-- 22:34:56
 ---

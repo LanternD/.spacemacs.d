@@ -25,6 +25,16 @@
 ")
  '(ivy-truncate-lines nil)
  '(monokai-highlight "#90ee90")
+ '(org-descriptive-links t)
+ '(org-emphasis-alist
+   (quote
+    (("*" bold)
+     ("#" italic)
+     ("_" underline)
+     ("=" org-verbatim verbatim)
+     ("~" org-code verbatim)
+     ("+"
+      (:strike-through t)))))
  '(org-export-backends (quote (ascii html latex md gfm)))
  '(org-md-headline-style (quote atx))
  '(org-replace-disputed-keys nil)
