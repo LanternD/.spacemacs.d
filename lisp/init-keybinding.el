@@ -63,7 +63,7 @@ layout: post
 title: 1
 description: 2.
 permalink: //
-categories: [Blog, 视界]
+categories: [blog, 视界]
 tags: []
 date: 2017-- 22:34:56
 ---
@@ -85,5 +85,7 @@ date: 2017-- 22:34:56
 (global-set-key (kbd "H-w") #'aya-create)
 (global-set-key (kbd "H-y") #'aya-expand)
 (global-set-key (kbd "C-m") #'aya-open-line)
+
+(global-set-key (kbd "<f11>") 'toggle-frame-fullscreen)
 
 (provide 'init-keybinding)

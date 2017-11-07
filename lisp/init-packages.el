@@ -29,6 +29,7 @@
 			    ergoemacs-mode
 			    flycheck
 			    auto-yasnippet
+			    which-key
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -184,6 +185,13 @@
 (require 'yasnippet)
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; which-key configuration
+(require 'which-key)
+(which-key-mode)
+
+(setq which-key-side-window-max-height 0.25)
+(setq which-key-side-window-location 'right)
 
 (provide 'init-packages)
 
