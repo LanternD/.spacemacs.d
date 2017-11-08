@@ -1,9 +1,10 @@
 ;; change some of the default settings in ergoemacs mode.
-(global-set-key (kbd "C-h") 'move-beginning-of-line)
-(global-set-key (kbd "C-e") 'move-end-of-line)
+(global-set-key (kbd "C-h") 'move-end-of-line)
+;; (global-set-key (kbd "M-h") 'move-end-of-line) 
 
 ;; Open swiper
 (global-set-key (kbd "C-f") 'swiper)
+
 
 ;; Open my init file
 (global-set-key (kbd "<f1> q") 'open-init-el)
@@ -87,5 +88,6 @@ date: 2017-- 22:34:56
 (global-set-key (kbd "C-m") #'aya-open-line)
 
 (global-set-key (kbd "<f11>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "M-l") 'right-char)
 
 (provide 'init-keybinding)
