@@ -30,6 +30,7 @@
 			    flycheck
 			    auto-yasnippet
 			    which-key
+			    use-package
 			    ) "Default packages")
 (setq package-selected-packages lanternd/packages)
 (defun lanternd/packages-installed-p ()
@@ -192,6 +193,14 @@
 
 (setq which-key-side-window-max-height 0.25)
 (setq which-key-side-window-location 'right)
+
+;; Smart parenthesis ignore certain marks
+(sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'org-mode "`" nil :actions nil)
+
+;;
+
 
 (provide 'init-packages)
 

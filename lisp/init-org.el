@@ -15,4 +15,6 @@
 	 "* TODO [#B] %?\n %i\n"
 	 :empty-line 1)))
 
+(eval-after-load "emacs-lisp" '(define-key (kbd "<RET>") '((electric-newline-and-maybe-indent))))
+
 (provide 'init-org)

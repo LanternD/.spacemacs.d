@@ -42,7 +42,7 @@
  '(org-support-shift-select nil)
  '(package-selected-packages
    (quote
-    (which-key auto-yasnippet flycheck ergoemacs-mode org-pomodoro org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
+    (use-package which-key auto-yasnippet flycheck ergoemacs-mode org-pomodoro org ox-gfm iedit expand-region js2-refactor nodejs-repl js2-mode smartparens company monokai-theme hungry-delete counsel swiper)))
  '(popwin:popup-window-position (quote right))
  '(popwin:popup-window-width 80)
  '(recentf-menu-before "Open File...")
