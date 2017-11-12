@@ -1,36 +1,34 @@
-;;Starts everytime we enter Emacs.
+;;; init.el --- Spacemacs Initialization File
+;;
+;; Copyright (c) 2012-2017 Sylvain Benner & Contributors
+;;
+;; Author: Sylvain Benner <sylvain.benner@gmail.com>
+;; URL: https://github.com/syl20bnr/spacemacs
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+;; Without this comment emacs25 adds (package-initialize) here
+;; (package-initialize)
 
+;; Increase gc-cons-threshold, depending on your system you may set it back to a
+;; lower value in your dotfile (function `dotspacemacs/user-config')
+(setq gc-cons-threshold 100000000)
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(defconst spacemacs-version         "0.200.10" "Spacemacs version.")
+(defconst spacemacs-emacs-min-version   "24.4" "Minimal version of Emacs.")
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
-(defun open-init-el()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-(server-mode 1)
-(require 'init-packages)
-(require 'init-ui)
-(require 'init-improve-default)
-(require 'init-org)
-(require 'init-keybinding)
-
-;; Put all the customized package settings to custom.el file.
-(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
-(load-file custom-file)
+(if (not (version<= spacemacs-emacs-min-version emacs-version))
+    (error (concat "Your version of Emacs (%s) is too old. "
+                   "Spacemacs requires Emacs version %s or above.")
+           emacs-version spacemacs-emacs-min-version)
+  (load-file (concat (file-name-directory load-file-name)
+                     "core/core-load-paths.el"))
+  (require 'core-spacemacs)
+  (spacemacs/init)
+  (configuration-layer/sync)
+  (spacemacs-buffer/display-startup-note)
+  (spacemacs/setup-startup-hook)
+  (require 'server)
+  (unless (server-running-p) (server-start)))
