@@ -42,6 +42,9 @@ values."
      emacs-lisp
      git
      markdown
+     (latex :variables latex-build-command "LaTeX"
+            latex-enable-auto-fill t
+            latex-enable-folding t)
      (org :variables org-enable-github-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -327,6 +330,8 @@ you should place your code here."
         '(("t" "Todo" entry (file+headline "D:/Dropbox/AGDA/Orz.org" "Agenda")
            "* TODO [#B] %?\n %i\n"
            :empty-line 1)))
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
     )
  
 
