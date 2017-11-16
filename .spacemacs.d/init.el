@@ -47,6 +47,7 @@ values."
             ;; TeX-command-default "LatexMk"
             latex-enable-auto-fill t
             latex-enable-folding t)
+     python
      (org :variables org-enable-github-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -335,7 +336,12 @@ you should place your code here."
            :empty-line 1)))
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (setq ispell-personal-dictionary "~/.emacs.d/.apsell.en.pws")
-    )
+
+  (when (display-graphic-p)
+    (dolist (charset '(kana han cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font) charset
+                        (font-spec :family "文泉驿正黑" :size 22))))
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -346,11 +352,15 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(TeX-command-list
    (quote
-    (("latexmk" "latexmk -pdf %s" TeX-run-TeX nil t :help "Run latexmk on file")
+    ((#("latexmk" 0 1
+        (idx 1))
+      "latexmk -pdf %s" TeX-run-TeX nil t :help "Run latexmk on file")
      ("TeX" "%(PDF)%(tex) %(file-line-error) %(extraopts) %`%S%(PDFout)%(mode)%' %t" TeX-run-TeX nil
       (plain-tex-mode texinfo-mode ams-tex-mode)
       :help "Run plain TeX")
-     ("LaTeX" "%`%l%(mode)%' %t" TeX-run-TeX nil
+     (#("LaTeX" 0 1
+        (idx 2))
+      "%`%l%(mode)%' %t" TeX-run-TeX nil
       (latex-mode doctex-mode)
       :help "Run LaTeX")
      ("Makeinfo" "makeinfo %(extraopts) %t" TeX-run-compile nil
@@ -368,31 +378,69 @@ you should place your code here."
      ("ConTeXt Full" "%(cntxcom) %(extraopts) %(execopts)%t" TeX-run-TeX nil
       (context-mode)
       :help "Run ConTeXt until completion")
-     ("BibTeX" "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
-     ("Biber" "biber %s" TeX-run-Biber nil t :help "Run Biber")
-     ("View" "%V" TeX-run-discard-or-function t t :help "Run Viewer")
-     ("Print" "%p" TeX-run-command t t :help "Print the file")
-     ("Queue" "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command)
-     ("File" "%(o?)dvips %d -o %f " TeX-run-dvips t t :help "Generate PostScript file")
-     ("Dvips" "%(o?)dvips %d -o %f " TeX-run-dvips nil t :help "Convert DVI file to PostScript")
-     ("Dvipdfmx" "dvipdfmx %d" TeX-run-dvipdfmx nil t :help "Convert DVI file to PDF with dvipdfmx")
-     ("Ps2pdf" "ps2pdf %f" TeX-run-ps2pdf nil t :help "Convert PostScript file to PDF")
-     ("Glossaries" "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file")
-     ("Index" "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file")
-     ("upMendex" "upmendex %s" TeX-run-index t t :help "Run upmendex to create index file")
-     ("Xindy" "texindy %s" TeX-run-command nil t :help "Run xindy to create index file")
-     ("Check" "lacheck %s" TeX-run-compile nil
+     (#("BibTeX" 0 1
+        (idx 3))
+      "bibtex %s" TeX-run-BibTeX nil t :help "Run BibTeX")
+     (#("Biber" 0 1
+        (idx 4))
+      "biber %s" TeX-run-Biber nil t :help "Run Biber")
+     (#("View" 0 1
+        (idx 5))
+      "%V" TeX-run-discard-or-function t t :help "Run Viewer")
+     (#("Print" 0 1
+        (idx 6))
+      "%p" TeX-run-command t t :help "Print the file")
+     (#("Queue" 0 1
+        (idx 7))
+      "%q" TeX-run-background nil t :help "View the printer queue" :visible TeX-queue-command)
+     (#("File" 0 1
+        (idx 8))
+      "%(o?)dvips %d -o %f " TeX-run-dvips t t :help "Generate PostScript file")
+     (#("Dvips" 0 1
+        (idx 9))
+      "%(o?)dvips %d -o %f " TeX-run-dvips nil t :help "Convert DVI file to PostScript")
+     (#("Dvipdfmx" 0 1
+        (idx 10))
+      "dvipdfmx %d" TeX-run-dvipdfmx nil t :help "Convert DVI file to PDF with dvipdfmx")
+     (#("Ps2pdf" 0 1
+        (idx 11))
+      "ps2pdf %f" TeX-run-ps2pdf nil t :help "Convert PostScript file to PDF")
+     (#("Glossaries" 0 1
+        (idx 12))
+      "makeglossaries %s" TeX-run-command nil t :help "Run makeglossaries to create glossary file")
+     (#("Index" 0 1
+        (idx 13))
+      "makeindex %s" TeX-run-index nil t :help "Run makeindex to create index file")
+     (#("upMendex" 0 1
+        (idx 14))
+      "upmendex %s" TeX-run-index t t :help "Run upmendex to create index file")
+     (#("Xindy" 0 1
+        (idx 15))
+      "texindy %s" TeX-run-command nil t :help "Run xindy to create index file")
+     (#("Check" 0 1
+        (idx 16))
+      "lacheck %s" TeX-run-compile nil
       (latex-mode)
       :help "Check LaTeX file for correctness")
-     ("ChkTeX" "chktex -v6 %s" TeX-run-compile nil
+     (#("ChkTeX" 0 1
+        (idx 17))
+      "chktex -v6 %s" TeX-run-compile nil
       (latex-mode)
       :help "Check LaTeX file for common mistakes")
-     ("Spell" "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
-     ("Clean" "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
-     ("Clean All" "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
-     ("Other" "" TeX-run-command t t :help "Run an arbitrary command"))))
+     (#("Spell" 0 1
+        (idx 18))
+      "(TeX-ispell-document \"\")" TeX-run-function nil t :help "Spell-check the document")
+     (#("Clean" 0 1
+        (idx 19))
+      "TeX-clean" TeX-run-function nil t :help "Delete generated intermediate files")
+     (#("Clean All" 0 1
+        (idx 20))
+      "(TeX-clean t)" TeX-run-function nil t :help "Delete generated intermediate and output files")
+     (#("Other" 0 1
+        (idx 21))
+      "" TeX-run-command t t :help "Run an arbitrary command"))))
  '(TeX-source-correlate-method (quote ((dvi . synctex) (pdf . synctex))))
- '(TeX-source-correlate-start-server t t)
+ '(TeX-source-correlate-start-server t)
  '(TeX-view-program-list
    (quote
     (("Sumatra PDF"
@@ -406,7 +454,7 @@ you should place your code here."
  '(org-export-with-sub-superscripts (quote {}))
  '(package-selected-packages
    (quote
-    (auctex-latexmk company-auctex auctex ox-gfm smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor flyspell-correct-ivy flyspell-correct auto-dictionary org-projectile org-pomodoro alert log4e markdown-toc flycheck-pos-tip pos-tip company-statistics auto-yasnippet ac-ispell unfill org-category-capture org-present gntp org-download mwim mmm-mode markdown-mode htmlize gnuplot gh-md fuzzy flycheck company yasnippet auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy org-plus-contrib evil-unimpaired f s dash))))
+    (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode company-anaconda anaconda-mode pythonic auctex-latexmk company-auctex auctex ox-gfm smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor flyspell-correct-ivy flyspell-correct auto-dictionary org-projectile org-pomodoro alert log4e markdown-toc flycheck-pos-tip pos-tip company-statistics auto-yasnippet ac-ispell unfill org-category-capture org-present gntp org-download mwim mmm-mode markdown-mode htmlize gnuplot gh-md fuzzy flycheck company yasnippet auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy org-plus-contrib evil-unimpaired f s dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
