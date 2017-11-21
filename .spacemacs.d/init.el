@@ -37,14 +37,14 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     auto-completion
+     (auto-completion ;; :disabled-for latex
+                      :variables
+                      auto-completion-enable-sort-by-usage t)
      better-defaults
      emacs-lisp
      git
      markdown
      (latex :variables
-            ;; latex-build-command "pdflatex"
-            ;; TeX-command-default "LatexMk"
             latex-enable-auto-fill t
             latex-enable-folding t)
      python
@@ -65,7 +65,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(company)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -439,6 +439,7 @@ you should place your code here."
      (#("Other" 0 1
         (idx 21))
       "" TeX-run-command t t :help "Run an arbitrary command"))))
+ '(TeX-save-query nil)
  '(TeX-source-correlate-method (quote ((dvi . synctex) (pdf . synctex))))
  '(TeX-source-correlate-start-server t)
  '(TeX-view-program-list
@@ -449,9 +450,13 @@ you should place your code here."
        " %o")
       nil))))
  '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF"))))
+ '(company-minimum-prefix-length 3)
  '(ispell-program-name "C:/Program Files (x86)/Aspell/bin/aspell.exe")
+ '(mouse-wheel-progressive-speed nil)
+ '(mouse-wheel-scroll-amount (quote (3 ((shift) . 5) ((control)))))
  '(org-export-backends (quote (ascii html latex md)))
  '(org-export-with-sub-superscripts (quote {}))
+ '(org-highlight-latex-and-related (quote (latex)))
  '(package-selected-packages
    (quote
     (yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional cython-mode company-anaconda anaconda-mode pythonic auctex-latexmk company-auctex auctex ox-gfm smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor flyspell-correct-ivy flyspell-correct auto-dictionary org-projectile org-pomodoro alert log4e markdown-toc flycheck-pos-tip pos-tip company-statistics auto-yasnippet ac-ispell unfill org-category-capture org-present gntp org-download mwim mmm-mode markdown-mode htmlize gnuplot gh-md fuzzy flycheck company yasnippet auto-complete ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed async aggressive-indent adaptive-wrap ace-window ace-link avy org-plus-contrib evil-unimpaired f s dash))))

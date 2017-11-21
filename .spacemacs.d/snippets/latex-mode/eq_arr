@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: equation array
+# key: eqarr
+# --
+\left\\{ {\begin{array}{*{20}{c}}
+			{\mathop $1}&{ $2} \\\\ 
+			{\mathop $3}&{ $4} \\\\ 
+			\end{array}} \right.
+$0
