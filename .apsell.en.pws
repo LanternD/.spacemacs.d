@@ -1,4 +1,4 @@
-personal_ws-1.1 en 27
+personal_ws-1.1 en 30
 pbrs
 PBRs
 SPC
@@ -9,7 +9,9 @@ Dropbox
 Narrowband
 PMF
 Tx
+Atmel
 STT
+Qi
 setq
 ELPA
 PBR
@@ -23,6 +25,7 @@ NACK
 prioritization
 MSE
 BCH
+USB
 fullscreen
 Spacemacs
 spacemacs
