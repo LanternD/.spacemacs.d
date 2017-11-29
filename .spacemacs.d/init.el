@@ -449,7 +449,7 @@ you should place your code here."
       "" TeX-run-command t t :help "Run an arbitrary command"))))
  '(TeX-save-query nil)
  '(TeX-source-correlate-method (quote ((dvi . synctex) (pdf . synctex))))
- '(TeX-source-correlate-start-server t t)
+ '(TeX-source-correlate-start-server t)
  '(TeX-view-program-list
    (quote
     (("Sumatra PDF"
@@ -457,7 +457,7 @@ you should place your code here."
        (mode-io-correlate " -forward-search %b %n")
        " %o")
       nil))))
- '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF"))))
+ '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF") (output-pdf "Evince"))))
  '(company-minimum-prefix-length 3)
  '(ispell-program-name "C:/Program Files (x86)/Aspell/bin/aspell.exe")
  '(mouse-wheel-progressive-speed nil)
