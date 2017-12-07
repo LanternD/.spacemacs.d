@@ -37,7 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     (auto-completion ;; :disabled-for latex
+     (auto-completion 
                       :variables
                       auto-completion-enable-sort-by-usage t)
      better-defaults
@@ -66,7 +66,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(company)
+   dotspacemacs-excluded-packages '()
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -458,8 +458,9 @@ you should place your code here."
        (mode-io-correlate " -forward-search %b %n")
        " %o")
       nil))))
- '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF") (output-pdf "Evince"))))
+ '(TeX-view-program-selection (quote ((output-pdf "Evince") (output-pdf "Sumatra PDF"))))
  '(company-minimum-prefix-length 3)
+ '(delete-selection-mode t)
  '(ispell-program-name "C:/Program Files (x86)/Aspell/bin/aspell.exe")
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 5) ((control)))))
