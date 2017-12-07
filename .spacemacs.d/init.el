@@ -350,6 +350,7 @@ you should place your code here."
       (set-fontset-font (frame-parameter nil 'font) charset
                         (font-spec :family "文泉驿正黑" :size 22))))
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+  (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
