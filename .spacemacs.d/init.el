@@ -461,7 +461,7 @@ you should place your code here."
  '(TeX-view-program-selection (quote ((output-pdf "Evince") (output-pdf "Sumatra PDF"))))
  '(company-minimum-prefix-length 3)
  '(delete-selection-mode t)
- '(ispell-program-name "C:/Program Files (x86)/Aspell/bin/aspell.exe")
+ '(ispell-personal-dictionary "~/.aspell_pws/.apsell.en.pws")
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 5) ((control)))))
  '(org-export-backends (quote (ascii html latex md)))
