@@ -345,7 +345,7 @@ you should place your code here."
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; System-specified commands (usually they are path-related commands).
-  (if (string-equal system-type "gnu-linux")
+  (if (string-equal system-type "gnu/linux")
       (progn
         (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
         (setq org-agenda-files '("~/Dropbox/AGDA"))
