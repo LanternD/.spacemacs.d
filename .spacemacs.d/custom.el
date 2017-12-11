@@ -102,7 +102,7 @@
        (mode-io-correlate " -forward-search %b %n")
        " %o")
       nil))))
- '(TeX-view-program-selection (quote ((output-pdf "Evince") (output-pdf "Sumatra PDF"))))
+ '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF"))))
  '(company-minimum-prefix-length 3)
  '(delete-selection-mode t)
  '(ispell-personal-dictionary "~/.aspell_pws/.apsell.en.pws")
