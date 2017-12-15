@@ -94,7 +94,7 @@
       "" TeX-run-command t t :help "Run an arbitrary command"))))
  '(TeX-save-query nil)
  '(TeX-source-correlate-method (quote ((dvi . synctex) (pdf . synctex))))
- '(TeX-source-correlate-start-server t)
+ '(TeX-source-correlate-start-server t t)
  '(TeX-view-program-list
    (quote
     (("Sumatra PDF"
@@ -105,7 +105,7 @@
  '(TeX-view-program-selection (quote ((output-pdf "Sumatra PDF"))))
  '(company-minimum-prefix-length 3)
  '(delete-selection-mode t)
- '(ispell-personal-dictionary "~/.aspell_pws/.apsell.en.pws")
+ '(ispell-personal-dictionary "~/.aspell_pws/.aspell.en.pws")
  '(mouse-wheel-progressive-speed nil)
  '(mouse-wheel-scroll-amount (quote (3 ((shift) . 5) ((control)))))
  '(org-export-backends (quote (ascii html latex md)))

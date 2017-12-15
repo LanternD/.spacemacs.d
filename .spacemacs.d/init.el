@@ -37,7 +37,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     (auto-completion 
+     (auto-completion
                       :variables
                       auto-completion-enable-sort-by-usage t)
      better-defaults
@@ -350,6 +350,7 @@ you should place your code here."
         (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
         (setq org-agenda-files '("~/Dropbox/AGDA"))
         (setq ispell-personal-dictionary "~/.aspell_pws/.aspell.en.pws")
+        (setq ispell-current-personal-dictionary "~/.aspell_pws/.aspell.en.pws")
         (setq orz-file-path "~/Dropbox/AGDA/Orz.org")
         '(TeX-view-program-selection (quote ((output-pdf "Evince"))))
         ;; (setq tex-view-program-selection '((output-pdf "Evince")))
@@ -368,7 +369,6 @@ you should place your code here."
 
         )
     )
-
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline orz-file-path "Agenda")
               "* TODO [#B] %?\n %i\n"
