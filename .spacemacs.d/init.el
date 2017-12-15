@@ -349,7 +349,7 @@ you should place your code here."
       (progn
         (setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
         (setq org-agenda-files '("~/Dropbox/AGDA"))
-        (setq ispell-personal-dictionary "~/.aspell_pws/.apsell.en.pws")
+        (setq ispell-personal-dictionary "~/.aspell_pws/.aspell.en.pws")
         (setq orz-file-path "~/Dropbox/AGDA/Orz.org")
         '(TeX-view-program-selection (quote ((output-pdf "Evince"))))
         ;; (setq tex-view-program-selection '((output-pdf "Evince")))
@@ -360,7 +360,7 @@ you should place your code here."
       (progn
         (setq interprogram-paste-function 'x-selection-value)
         (setq org-agenda-files '("D:/Dropbox/AGDA"))
-        (setq ispell-personal-dictionary "D:/Dropbox/Misc_Cfg_Sync/.aspell_pws/.apsell.en.pws")
+        (setq ispell-personal-dictionary "D:/Dropbox/Misc_Cfg_Sync/.aspell_pws/.aspell.en.pws")
         (setq orz-file-path "D:/Dropbox/AGDA/Orz.org")
         (setq ispell-program-name "C:/Program Files (x86)/Aspell/bin/aspell.exe")
         ;; (setq tex-view-program-selection '((output-pdf "Sumatra PDF")))
