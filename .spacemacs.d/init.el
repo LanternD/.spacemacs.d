@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     html
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -43,12 +44,14 @@ values."
      better-defaults
      emacs-lisp
      git
+     semantic
      (markdown :variables
                markdown-enable-math t)
      (latex :variables
             latex-enable-auto-fill t
             latex-enable-folding t)
      python
+     ( c-c++ :variables c-c++-enable-clang-support t)
      (org :variables org-enable-github-support t)
      ;; (shell :variables
      ;;        shell-default-height 30
