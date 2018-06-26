@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: table
+# key: table
+# --
+
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+\setlength\extrarowheight{5pt}
+ \hline
+  $1 & $2 & $3 \\\\ 
+  $4 & $5 & $6 \\\\ 
+  $7 & $8 & $9 \\\\
+ \hline
+\end{tabular}
+\caption{}
+\label{table:1}
+\end{center}
+$0
